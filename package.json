@@ -1,0 +1,40 @@
+{
+  "name": "minista-project",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "minista",
+    "build": "minista build",
+    "preview": "minista preview",
+    "lint:js": "eslint .",
+    "lint:js:fix": "eslint . --fix",
+    "lint:scss": "stylelint \"**/*.scss\"",
+    "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
+    "format": "prettier . --write",
+    "lint": "npm run lint:js && npm run lint:scss",
+    "lint:fix": "npm run lint:js:fix && npm run lint:scss:fix && npm run format"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.4.0",
+    "minista": "^3.1.12",
+    "postcss-pxtorem": "^6.1.0",
+    "prettier": "3.6.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.81.0",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^39.0.1",
+    "stylelint-config-standard-scss": "^16.0.0"
+  },
+  "dependencies": {
+    "@a1rth/css-normalize": "^1.1.9",
+    "classnames": "^2.5.1",
+    "imask": "^7.6.1",
+    "swiper": "^11.1.15"
+  }
+}
