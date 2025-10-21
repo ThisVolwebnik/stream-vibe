@@ -1,0 +1,61 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: var(--section-padding-y);
+  text-align: center;
+
+  @include mobile {
+    min-height: 639px;
+  }
+
+  &__pano {
+    --hero-gradient-color-start: var(--color-black-08);
+    --hero-gradient-color-end: rgb(20 20 20 / 0%);
+    --hero-gradient-height: 67.5%;
+    --hero-gradient-top: linear-gradient(
+        to bottom,
+        var(--hero-gradient-color-start) 0%,
+        var(--hero-gradient-color-end) 100%
+      )
+      50% 0/100% var(--hero-gradient-height);
+    --hero-gradient-bottom: linear-gradient(
+        to top,
+        var(--hero-gradient-color-start) 0%,
+        var(--hero-gradient-color-end) 100%
+      )
+      50% 101%/100% var(--hero-gradient-height);
+
+    @include flex-center;
+
+    flex-grow: 1;
+    padding-top: fluid(195, 150);
+    padding-bottom: fluid(131, 50);
+    background:
+      var(--hero-gradient-top),
+      var(--hero-gradient-bottom),
+      url("../../assets/images/hero/bg.png") 50% / cover;
+    background-repeat: no-repeat;
+  }
+
+  &__play-button {
+    @include square(fluid(470, 200));
+
+    padding: 0;
+    background-color: transparent;
+    border: none;
+  }
+
+  &__title {
+    margin-top: -0.5em;
+    margin-bottom: fluid-to-laptop(14, 10);
+  }
+
+  &__description {
+    margin-bottom: fluid(50, 30);
+  }
+
+  &__body {
+    padding-bottom: fluid(50, 20);
+  }
+}
