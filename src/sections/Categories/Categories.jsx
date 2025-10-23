@@ -1,10 +1,10 @@
 import "./Categories.scss";
-import classNames from "classnames";
 import Section from "@/layouts/Section";
 import CategoryCard from "@/components/CategoryCard";
+import Slider from "@/components/Slider";
+import SliderNavigation from "@/components/Slider/components/SliderNavigation";
 
-const Categories = props => {
-  const { className } = props;
+const Categories = () => {
   const categoryItems = [
     {
       title: "Action",
@@ -59,10 +59,15 @@ const Categories = props => {
       description="Whether you're looking for a comedy to make you laugh, a drama to make you think, or a documentary to learn something new"
       titleId="categories-title"
       isActionsHiddenOnMobile
+      actions={
+        <SliderNavigation mode="tile" id="categories-slider-navigation" />
+      }
     >
-      {categoryItems.map((categoryItem, index) => (
-        <CategoryCard {...categoryItem} key={index} />
-      ))}
+      <Slider navigationTargetElementId="categories-slider-navigation">
+        {categoryItems.map((categoryItem, index) => (
+          <CategoryCard {...categoryItem} key={index} />
+        ))}
+      </Slider>
     </Section>
   );
 };
