@@ -3,6 +3,7 @@ import classNames from "classnames";
 import Button from "@/components/Button";
 import Section from "@/layouts/Section";
 import AccordionGroup from "@/components/AccordionGroup";
+import Accordion from "@/components/Accordion";
 
 const Questions = props => {
   const { className } = props;
@@ -25,7 +26,22 @@ const Questions = props => {
       titleId="questions-title"
       actions={<Button label="Ask a Question" href="/support" />}
     >
-      <AccordionGroup columns={2}>{questionItems}</AccordionGroup>
+      <AccordionGroup columns={2}>
+        {questionItems.map((question, index) => (
+          <Accordion
+            title={question}
+            name="questions"
+            id={`question-${index}`}
+            isOpen={index === 0}
+            key={index}
+          >
+            <p>
+              StreamVibe is a streaming service that allows you to watch movies
+              and shows on demand.
+            </p>
+          </Accordion>
+        ))}
+      </AccordionGroup>
     </Section>
   );
 };
