@@ -1,6 +1,11 @@
 .tabs-navigation {
+  --tabs-active-button-width: 0;
+  --tabs-active-button-offset-left: 0;
+  --tabs-navigation-padding: #{fluid-to-laptop(10, 8)};
+
+  position: relative;
   display: flex;
-  padding: fluid-to-laptop(10, 8);
+  padding: var(--tabs-navigation-padding);
   border: var(--border);
   border-radius: var(--border-radius-m);
 
@@ -8,7 +13,25 @@
     border-radius: var(--border-radius-s);
   }
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: var(--tabs-navigation-padding);
+    left: 0;
+    width: var(--tabs-active-button-width);
+    height: calc(100% - var(--tabs-navigation-padding) * 2);
+    background-color: var(--color-black-12);
+    border-radius: var(--border-radius-m);
+    transition-duration: var(--transition-duration);
+    translate: var(--tabs-active-button-offset-left);
+
+    @include laptop {
+      border-radius: var(--border-radius-xs);
+    }
+  }
+
   &__button {
+    position: relative;
     padding: fluid-to-laptop(14, 12) fluid-to-laptop(24, 20);
     border-radius: var(--border-radius-m);
     transition-duration: var(--transition-duration);

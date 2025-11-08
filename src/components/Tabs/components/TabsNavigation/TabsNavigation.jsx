@@ -15,7 +15,7 @@ const TabsNavigation = props => {
       id={id}
       role="tablist"
       aria-labelledby={titleId}
-      data-js-tab-navigation=""
+      data-js-tabs-navigation=""
     >
       <h3 className="visually-hidden" id={titleId}>
         {title}
